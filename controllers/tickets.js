@@ -38,7 +38,19 @@ router.get('/:id', (req, res) => {
 });
 
 // Ticket - Post
+router.post('/', (req, res) => {
 
+    // create new ticket from the schema
+    const newTicket = new Ticket({
+        title: req.body.title,
+        owner_id: req.user.id
+    });
+
+
+    // save to the database
+    newTicket.save()
+    .then( (ticket) => res.json(ticket) );
+})
 
 
 
