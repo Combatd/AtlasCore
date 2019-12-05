@@ -7,14 +7,21 @@ require('./config/db');
 
 // controllers
 // const userController = require('./controllers/users');
+const ticketController = require('./controllers/tickets');
 
 // static files
 // app.use(express.static(path.join(__dirname, 'frontend' ,'build')));
-// app.use(express.json());
+app.use(express.json());
+
+
+// middleware
+app.use(methodOverride('_method')); // must become before routes
+app.use(express.urlencoded({ extended: false }));
 
 
 // URL prefix
-// app.use('/auth', userController);
+// app.use('/api/v1/auth', userController);
+app.use('/api/v1/tickets', ticketController);
 
 
 app.get('/api/v1/hello', (req, res) => {
