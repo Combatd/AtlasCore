@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Combatd/AtlasCore#readme",
   "dependencies": {
+    "eslint": "^6.7.2",
     "express": "^4.17.1",
     "mongoose": "^5.7.13"
   }
