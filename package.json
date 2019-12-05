@@ -1,0 +1,23 @@
+{
+  "name": "atlascore",
+  "version": "1.0.0",
+  "description": "MERN stack IT Support Ticket System named after the titan in Greek Mythology",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Combatd/AtlasCore.git"
+  },
+  "author": "mark calvelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Combatd/AtlasCore/issues"
+  },
+  "homepage": "https://github.com/Combatd/AtlasCore#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.13"
+  }
+}
