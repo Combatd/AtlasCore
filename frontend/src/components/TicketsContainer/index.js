@@ -2,12 +2,22 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TicketBox from '../TicketBox';
 
-class Ticket extends React.Component {
+class TicketsContainer extends React.Component {
     constructor(props) { 
         super(props);
 
         this.state = {
-            tickets: []
+            tickets: [],
+            loggedUser: false,
+            showAddModal: null,
+            showEditModal: null,
+            ticketToEdit: {
+                title: '',
+                closed_date: '',
+                updated: '',
+                is_open: '',
+                text: '',
+            }
         }
     }
 
@@ -158,4 +168,4 @@ class Ticket extends React.Component {
 
 }
 
-export default withRouter(Ticket);
+export default TicketsContainer;
