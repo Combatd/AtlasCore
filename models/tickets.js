@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const ticketSchema = new Schema( {
     title: { type: String, required: true },
-    owner_id: { type: String },
+    user: { 
+        type: Schema.Types.ObjectId, ref: 'users' 
+    },
     created_at: { type: Date, default: Date.now },
     closed_date: { type: Date },
     updated: { type: Date },

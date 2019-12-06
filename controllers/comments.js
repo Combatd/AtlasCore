@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const Ticket = require('../models/tickets');
 const Comment = require('../models/comments');
+
+
+
 
 router.post('/tickets/:id', (req, res) => {
     

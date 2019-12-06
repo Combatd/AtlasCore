@@ -19,9 +19,9 @@ router.get('/', (req, res) => {
 });
 
 // Find all User's tickets
-router.get('/user/:user_id', (req, res) => {
+router.get('/user/:userId', (req, res) => {
 
-    Ticket.find( { user: req.params.user_id } )
+    Ticket.find( { user: req.params.userId } )
     .then( (tickets) => res.json(tickets) )
     .catch( (error) => res.status(404).json( { noticketsFound: 'No tickets found from that user' }))
 
