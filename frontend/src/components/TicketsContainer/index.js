@@ -71,6 +71,36 @@ class Ticket extends React.Component {
 
         }
 
+        closeAndEdit = async (e) => {
+            e.preventDefault();
+
+            try {
+                const editResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${this.state.ticketToEdit.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(this.state.ticketToEdit),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+
+                });
+                
+                const editResponseParsed = await editResponse.json();
+                const newTicketArrayWithEdit = this.state.tickets.map( (ticket) => {
+                    if (ticket.id === editResponseParsed.data.id) {
+                        ticket = editResponseParsed.data
+                    }
+                    return ticket
+                });
+                this.setState({
+                    tickets: newTicketArrayWithEdit,
+                    showEditModal: false
+                });
+
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
 
 
 
