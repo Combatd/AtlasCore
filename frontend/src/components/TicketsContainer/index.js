@@ -111,6 +111,15 @@ class Ticket extends React.Component {
             })
         }
 
+        handleEditChange = (e) => {
+            this.setState({
+                ticketToEdit: {
+                    ...this.state.ticketToEdit,
+                    [e.currentTarget.name]: e.currentTarget.value
+                }
+            });
+        }
+
 
         render() {
             if (this.state.tickets.length === 0) {
