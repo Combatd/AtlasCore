@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Component}  from 'react';
 
-const TicketBox = (props) => {
+class TicketBox extends Component  {
+    constructor(props) {
+        super(props)
+        this.state = {
 
-    return (
-        <div>
-            <h3>{props.text}</h3>
-        </div>
-    )
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h3>{this.props.text}</h3>
+            </div>
+        )
+    }
+    
 
 }
 

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
-import Tickets from './components/TicketsContainer';
+import TicketsContainer from './components/TicketsContainer';
 import TicketBox from './components/TicketBox';
 
 const App = () => {
