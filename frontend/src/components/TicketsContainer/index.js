@@ -120,6 +120,12 @@ class Ticket extends React.Component {
             });
         }
 
+        showAddModal = () => {
+            this.setState({
+                showAddModal: true
+            })
+        }
+
 
         render() {
             if (this.state.tickets.length === 0) {
