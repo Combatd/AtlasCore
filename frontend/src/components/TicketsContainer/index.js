@@ -99,9 +99,17 @@ class Ticket extends React.Component {
             } catch (error) {
                 console.log(error)
             }
-
         }
 
+        openAndEdit = (ticketFromTheList) => {
+            this.setState({
+                showEditModal: true,
+                ticketToEdit: {
+                    ...this.state.ticketToEdit,
+                    [e.currentTarget.name]: e.currentTarget.value
+                }
+            })
+        }
 
 
         render() {
