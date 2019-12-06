@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
+const methodOverride = require('method-override');
+
+
 const PORT = process.env.PORT || 8000;
 require('./config/db');
 
@@ -20,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // URL prefix
-// app.use('/api/v1/auth', userController);
+// app.use('/api/v1/user', userController);
 app.use('/api/v1/tickets', ticketController);
 
 

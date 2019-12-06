@@ -9,6 +9,7 @@ const ticketSchema = new Schema( {
     updated: { type: Date },
     category: { type: String },
     is_open: { type: Boolean, default: true },
+    text: { type: String },
     comments: [
         // comments will be pushed into here
     ],
