@@ -1,21 +1,31 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
+const methodOverride = require('method-override');
+
+
 const PORT = process.env.PORT || 8000;
 require('./config/db');
 
 // controllers
-// const userController = require('./controllers/users');
+const userController = require('./controllers/users');
+const ticketController = require('./controllers/tickets');
+const commentController = require('./controllers/comments.js');
 
 // static files
 // app.use(express.static(path.join(__dirname, 'frontend' ,'build')));
-// app.use(express.json());
+app.use(express.json());
+
+
+// middleware
+app.use(methodOverride('_method')); // must become before routes
+app.use(express.urlencoded({ extended: false }));
 
 
 // URL prefix
-// app.use('/auth', userController);
-
+app.use('/api/v1/users', userController);
+app.use('/api/v1/tickets', ticketController);
+app.use('/api/v1/', commentController);
 
 app.get('/api/v1/hello', (req, res) => {
     res.json({
