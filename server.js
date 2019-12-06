@@ -10,6 +10,7 @@ require('./config/db');
 // controllers
 const userController = require('./controllers/users');
 const ticketController = require('./controllers/tickets');
+const commentController = require('./controllers/comments.js');
 
 // static files
 // app.use(express.static(path.join(__dirname, 'frontend' ,'build')));
@@ -24,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 // URL prefix
 app.use('/api/v1/users', userController);
 app.use('/api/v1/tickets', ticketController);
-
+app.use('/api/v1/', commentController);
 
 app.get('/api/v1/hello', (req, res) => {
     res.json({
