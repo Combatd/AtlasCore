@@ -37,6 +37,26 @@ class Ticket extends React.Component {
             }
         }
 
+        closeAndAdd = async (e, ticket) => {
+            e.preventDefault();
+
+            try {
+                
+                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets`, {
+                    credentials: 'include',
+                    method: 'POST',
+                    body: JSON.stringify(ticket),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+
         deleteTicket = async (id) => {
             const deleteTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${id}`, {
                 method: 'DELETE',
