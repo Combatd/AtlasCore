@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8000;
 require('./config/db');
 
 // controllers
-// const userController = require('./controllers/users');
+const userController = require('./controllers/users');
 const ticketController = require('./controllers/tickets');
 
 // static files
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // URL prefix
-// app.use('/api/v1/user', userController);
+app.use('/api/v1/users', userController);
 app.use('/api/v1/tickets', ticketController);
 
 
