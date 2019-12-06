@@ -126,6 +126,14 @@ class Ticket extends React.Component {
             })
         }
 
+        // closes all modals
+        closeModal = () => {
+            this.setState({
+                showAddModal: false,
+                showEditModal: false
+            })
+        }
+
 
         render() {
             if (this.state.tickets.length === 0) {
