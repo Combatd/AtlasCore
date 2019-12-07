@@ -11,8 +11,12 @@ class AddModal extends Component {
             category: '',
             text: ''
         }
-
     }
+
+    handleChange = (e) => {
+        this.setState( [e.currentTarget.name]: e.currentTarget.value )
+    }
+    
 
 }
 
