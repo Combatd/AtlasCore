@@ -115,8 +115,7 @@ class TicketsContainer extends React.Component {
             this.setState({
                 showEditModal: true,
                 ticketToEdit: {
-                    ...this.state.ticketToEdit,
-                    [e.currentTarget.name]: e.currentTarget.value
+                    ...ticketFromTheList
                 }
             })
         }
