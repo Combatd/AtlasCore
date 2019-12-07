@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import './App.css';
 import Navbar from './components/layout/Navbar';
 
 import TicketsContainer from './components/TicketsContainer';

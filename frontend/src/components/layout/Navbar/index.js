@@ -4,10 +4,10 @@ class Navbar extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div>
 
                 <nav>
-                    <div class="nav-wrapper">
+                    <div class="nav-wrapper blue" >
                         <a href="#" class="brand-logo">Logo</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a href="sass.html">Sass</a></li>
@@ -17,7 +17,7 @@ class Navbar extends Component {
                     </div>
                 </nav>
 
-            </React.Fragment>
+            </div>
         )
     }
 
