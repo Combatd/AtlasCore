@@ -1,6 +1,7 @@
 import React, { Component}  from 'react';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { ReactComponent } from '*.svg';
 
 class TicketBox extends Component  {
     constructor(props) {
@@ -18,24 +19,34 @@ class TicketBox extends Component  {
 
 
     render() {
-        return (
-            <React.Fragment>
-                <div class="row">
-                    <div class="col s12 m6">
-                        <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                                <span class="card-title">Card Title</span>
-                                <p>{this.props.text}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="#">This is a link</a>
-                                <a href="#">This is a link</a>
+        const tickets = this.props.tickets.map( (ticket) => {
+
+            return (
+                <React.Fragment>
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="card blue-grey darken-1">
+                                <div class="card-content white-text">
+                                    <span class="card-title">Card Title</span>
+                                    <p>{this.props.text}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                    <a href="#">This is a link</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </React.Fragment>
+                </React.Fragment>
+            )
+
+        })
+
+        return(
+            <div>
+                {tickets}
+            </div>
         )
     }
     
