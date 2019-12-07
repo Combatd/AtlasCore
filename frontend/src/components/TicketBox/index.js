@@ -10,6 +10,13 @@ class TicketBox extends Component  {
         }
     }
 
+    componentDidMount() {
+        // Auto initialize all the things!
+        M.AutoInit();
+    }
+
+
+
     render() {
         return (
             <React.Fragment>

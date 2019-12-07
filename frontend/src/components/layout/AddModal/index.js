@@ -17,6 +17,15 @@ class AddModal extends Component {
         this.setState( [e.currentTarget.name]: e.currentTarget.value )
     }
     
+    render() {
+        return(
+            <React.Fragment>
+
+                
+
+            </React.Fragment>
+        )
+    }
 
 }
 
