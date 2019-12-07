@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 class Navbar extends Component {
+
+    componentDidMount() {
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+    }
+
 
     render() {
         return (
@@ -31,7 +45,11 @@ class Navbar extends Component {
                             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
                     </div>
                     </li>
-
+                    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                    <li><a href="#!">Second Link</a></li>
+                    <li><div class="divider"></div></li>
+                    <li><a class="subheader">Subheader</a></li>
+                    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
                 </ul>
                 
             </ React.Fragment>
