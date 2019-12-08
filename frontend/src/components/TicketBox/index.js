@@ -19,7 +19,9 @@ class TicketBox extends Component  {
 
 
     render() {
-        const tickets = this.props.tickets.map( (ticket) => {
+        const { tickets } = this.props;
+
+        this.tickets.map( (ticket) => {
 
             return (
                 <React.Fragment>
@@ -27,12 +29,14 @@ class TicketBox extends Component  {
                         <div class="col s12 m6">
                             <div class="card blue-grey darken-1">
                                 <div class="card-content white-text">
-                                    <span class="card-title">Card Title</span>
-                                    <p>{this.props.text}</p>
+                                    <span class="card-title"> {ticket.title} </span>
+                                    <p>
+                                        <h4>{ticket.category}</h4>
+                                        <h5>Open Status: {ticket.is_open}</h5>
+                                    </p>
                                 </div>
                                 <div class="card-action">
-                                    <a href="#">This is a link</a>
-                                    <a href="#">This is a link</a>
+                                    <a href="#">Show Ticket</a>
                                 </div>
                             </div>
                         </div>
