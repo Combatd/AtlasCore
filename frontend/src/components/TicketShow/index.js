@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import AddModal from '../layout/AddModal';
-
+// import AddCommentForm from '../layout/AddCommentForm';
+// import EditModal from '../layout/EditModal';
 
 
 class TicketShow extends Component {
@@ -37,6 +37,12 @@ class TicketShow extends Component {
         } catch (error) {
             console.log(error);
         }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
 
