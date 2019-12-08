@@ -34,6 +34,7 @@ class TicketBox extends Component  {
                                 </div>
                                 <div class="card-action">
                                     <a href="#">Show Ticket</a>
+                                    <a onClick={}>Edit Ticket</a>
                                 </div>
                             </div>
                         </div>

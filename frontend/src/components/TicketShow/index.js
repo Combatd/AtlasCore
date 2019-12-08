@@ -58,6 +58,7 @@ class TicketShow extends Component {
                 <h1>{ticket.title}</h1>
                 <h2>Category: {ticket.category}</h2>
                 <h4>Creation Date: {ticket.created_at}</h4>
+                <p>{ticket.text}</p>
             </React.Fragment>
         )
     }
