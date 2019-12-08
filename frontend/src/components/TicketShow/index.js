@@ -13,6 +13,10 @@ class TicketShow extends Component {
         }
     }
 
+    componentDidMount() {
+        this.getTicket();
+    }
+
 
     getTicket = async () => {
         const [params] = this.props.match.params;
@@ -35,7 +39,7 @@ class TicketShow extends Component {
         }
     }
 
-    
+
 
 }
 
