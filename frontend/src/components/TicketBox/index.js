@@ -18,9 +18,7 @@ class TicketBox extends Component  {
 
 
     render() {
-        const { tickets } = this.props;
-
-        this.tickets.map( (ticket) => {
+        const { ticket } = this.props;
 
             return (
                 <React.Fragment>
@@ -44,13 +42,6 @@ class TicketBox extends Component  {
                 </React.Fragment>
             )
 
-        })
-
-        return(
-            <div>
-                {tickets}
-            </div>
-        )
     }
     
 

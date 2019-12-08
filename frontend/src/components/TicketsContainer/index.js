@@ -145,7 +145,8 @@ class TicketsContainer extends React.Component {
 
 
         render() {
-            if (this.state.tickets.length === 0) {
+            const [tickets] = this.state;
+            if (tickets.length === 0) {
                 return(
                     <div>
                         There are currently no tickets!
@@ -156,8 +157,8 @@ class TicketsContainer extends React.Component {
                     <div>
                     <h2>All Tickets</h2>
                     {
-                        this.state.tickets.map(ticket => (
-                            <TicketBox key={ticket._id} tickets={this.state.tickets} />
+                        tickets.map(ticket => (
+                            <TicketBox key={ticket._id} ticket={ticket} />
                         ))
                     }
                     </div>
