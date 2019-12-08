@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import AddCommentForm from '../layout/AddCommentForm';
+import AddCommentForm from '../layout/AddCommentForm';
 // import EditModal from '../layout/EditModal';
 
 
@@ -50,9 +50,14 @@ class TicketShow extends Component {
    
 
     render() {
+        const [ticket] = this.state;
+        const [comments] = this.state.ticket.comments;
+
         return(
             <React.Fragment>
-
+                <h1>{ticket.title}</h1>
+                <h2>Category: {ticket.category}</h2>
+                <h4>Creation Date: {ticket.created_at}</h4>
             </React.Fragment>
         )
     }
