@@ -147,8 +147,8 @@ class TicketsContainer extends React.Component {
 
 
         render() {
-            const [tickets, showAddModal, showEditModal] = this.state;
-            if (tickets.length === 0) {
+            // const [tickets, showAddModal, showEditModal] = this.state;
+            if (this.state.tickets.length === 0) {
                 return(
                     <div>
                         There are currently no tickets!
@@ -174,7 +174,7 @@ class TicketsContainer extends React.Component {
 
                     <h2>All Tickets</h2>
                     {
-                        tickets.map(ticket => (
+                        this.state.tickets.map(ticket => (
                             <TicketBox key={ticket._id} ticket={ticket} />
                         ))
                     }

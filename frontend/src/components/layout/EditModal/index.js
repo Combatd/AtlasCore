@@ -13,8 +13,8 @@ class EditModal extends Component {
 
 
     render() {
-        const [title, category, text] = this.state;
-        const [closeAndAdd] = this.props;
+        // const [title, category, text] = this.state;
+        // const [closeAndAdd] = this.props;
 
         return (
             <React.Fragment>
@@ -26,11 +26,11 @@ class EditModal extends Component {
                         <h4>Login Form</h4>
                         <br />
 
-                        <form onSubmit={e => closeAndAdd(e, this.state)}>
+                        <form onSubmit={e => this.props.closeAndAdd(e, this.state)}>
 
                             <div class="input-field">
                                 <i class="material-icons prefix">person</i>
-                                <input type="text" id="title" name="title" value={title} onChange={this.handleChange} />
+                                <input type="text" id="title" name="title" value={this.state.title} onChange={this.handleChange} />
                                 <label for="title">Title</label>
                             </div>
                             <br />
@@ -62,7 +62,7 @@ class EditModal extends Component {
 
                             <div class="input-field">
                                 <i class="material-icons prefix">mode_edit</i>
-                                <textarea id="text" name="text" value={text} onChange={this.handleChange} />
+                                <textarea id="text" name="text" value={this.state.text} onChange={this.handleChange} />
                                 <label for="text">Text</label>
                             </div>
 

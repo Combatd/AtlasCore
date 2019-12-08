@@ -18,7 +18,7 @@ class TicketBox extends Component  {
 
 
     render() {
-        const { ticket } = this.props;
+        
 
             return (
                 <React.Fragment>
@@ -26,15 +26,15 @@ class TicketBox extends Component  {
                         <div class="col s12 m6">
                             <div class="card blue-grey darken-1">
                                 <div class="card-content white-text">
-                                    <span class="card-title"> {ticket.title} </span>
+                                    <span class="card-title"> {this.props.ticket.title} </span>
                                     <p>
-                                        <h4>{ticket.category}</h4>
-                                        <h5>Open Status: {ticket.is_open}</h5>
+                                        <h4>{this.props.ticket.category}</h4>
+                                        <h5>Open Status: {this.props.ticket.is_open}</h5>
                                     </p>
                                 </div>
                                 <div class="card-action">
                                     <a href="#">Show Ticket</a>
-                                    <a onClick={}>Edit Ticket</a>
+                                    <a href="#" onClick={ () => this.props.openAndEdit(this.props.ticket) }>Edit Ticket</a>
                                 </div>
                             </div>
                         </div>
