@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import { Modal } from ../Modal
+import M from 'materialize-css/dist / js / materialize.min.js';
 
 class AddModal extends Component {
     constructor() {
