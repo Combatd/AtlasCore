@@ -18,6 +18,9 @@ class AddModal extends Component {
     }
     
     render() {
+        const [title, category, text] = this.state;
+        const [closeAndAdd] = this.props;
+        
         return(
             <React.Fragment>
             
@@ -28,27 +31,45 @@ class AddModal extends Component {
                             <h4>Login Form</h4>
                             <br />
 
-                            <form action="#">
+                            <form onSubmit={e => closeAndAdd(e, this.state)}>
 
                             <div class="input-field">
                                 <i class="material-icons prefix">person</i>
-                                <input type="text" id="name" />
-                                <label for="name">Username</label>
+                                <input type="text" id="title" name="title" value={title} onChange={this.handleChange} />
+                                <label for="title">Title</label>
                             </div>
                             <br />
 
                             <div class="input-field">
                                 <i class="material-icons prefix">lock</i>
-                                <input type="password" id="pass" />
-                                <label for="pass">Password</label>
+                                <p>
+                                    <label for="Computer">
+                                        <input id="Computer" class="with-gap" name="category" type="radio" checked />
+                                        <span>Computer</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label for="Phone">
+                                        <input id="Phone" class="with-gap" name="categpry" type="radio" />
+                                        <span>Phone</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label for="Other">
+                                        <input id="Other" class="with-gap" name="category" type="radio" />
+                                        <span>Other</span>
+                                    </label>
+                                </p>
+                                
+
                             </div>
                             <br />
 
-                            <div class="left" style="margin-left:20px;">
-                                <input type="checkbox" id="check" />
-                                <label for="check">Remember Me</label>
+                            <div class="input-field">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="text" name="text" value={text} onChange={this.handleChange} />
+                                <label for="text">Text</label>
                             </div>
-                            <br />
                             
                             <input type="submit" value="Login" class="btn btn-large" />
                             
