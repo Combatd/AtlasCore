@@ -14,7 +14,9 @@ class AddModal extends Component {
     }
 
     handleChange = (e) => {
-        this.setState( [e.currentTarget.name]: e.currentTarget.value )
+        this.setState({ 
+            [e.currentTarget.name]: e.currentTarget.value 
+        })
     }
     
     render() {

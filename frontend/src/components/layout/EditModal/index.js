@@ -11,9 +11,6 @@ class EditModal extends Component {
         }
     }
 
-    handleChange = (e) => {
-        this.setState([e.currentTarget.name]: e.currentTarget.value)
-    }
 
     render() {
         const [title, category, text] = this.state;
