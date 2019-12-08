@@ -11,5 +11,11 @@ class AddCommentForm extends Component {
             text:''
         }
     }
-    
+
+    handleChange = (e) => {
+        this.setState({
+            [e.currentTarget.name]: e.currentTarget.value
+        });
+    }
+
 }
