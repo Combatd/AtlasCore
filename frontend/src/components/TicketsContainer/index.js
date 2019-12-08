@@ -158,7 +158,7 @@ class TicketsContainer extends React.Component {
                     <h2>All Tickets</h2>
                     {
                         tickets.map(ticket => (
-                            <TicketBox key={ticket._id} tickets={ticket} />
+                            <TicketBox key={ticket._id} ticket={ticket} />
                         ))
                     }
                     </div>
