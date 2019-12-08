@@ -1,6 +1,8 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
 import TicketBox from '../TicketBox';
+import AddModal from '../layout/AddModal';
+import EditModal from '../layout/EditModal';
 
 class TicketsContainer extends React.Component {
     constructor(props) { 
@@ -145,8 +147,8 @@ class TicketsContainer extends React.Component {
 
 
         render() {
-            const [tickets] = this.state;
-            if (tickets.length === 0) {
+            // const [tickets, showAddModal, showEditModal] = this.state;
+            if (this.state.tickets.length === 0) {
                 return(
                     <div>
                         There are currently no tickets!
@@ -155,9 +157,24 @@ class TicketsContainer extends React.Component {
             } else {
                 return (
                     <div>
+                        {
+                            this.state.showAddModal
+                                ?
+                                <AddModal closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
+                                :
+                                null
+                        }
+                        {
+                            this.state.showEditModal
+                                ?
+                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.timelineToEdit} />
+                                :
+                                null
+                        }
+
                     <h2>All Tickets</h2>
                     {
-                        tickets.map(ticket => (
+                        this.state.tickets.map(ticket => (
                             <TicketBox key={ticket._id} ticket={ticket} />
                         ))
                     }

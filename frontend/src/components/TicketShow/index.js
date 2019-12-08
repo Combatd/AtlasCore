@@ -21,8 +21,8 @@ class TicketShow extends Component {
 
 
     getTicket = async () => {
-        const [params] = this.props.match.params;
-        const ticketId = params.id;
+        // const params = this.props.match.params;
+        const ticketId = this.props.match.params.id;
 
         try {
             const ticket = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${ticketId}`, {
@@ -50,14 +50,15 @@ class TicketShow extends Component {
    
 
     render() {
-        const [ticket] = this.state;
-        const [comments] = this.state.ticket.comments;
+        // const [ticket] = this.state;
+        // const [comments] = this.state.ticket.comments;
 
         return(
             <React.Fragment>
-                <h1>{ticket.title}</h1>
-                <h2>Category: {ticket.category}</h2>
-                <h4>Creation Date: {ticket.created_at}</h4>
+                <h1>{this.state.ticket.title}</h1>
+                <h2>Category: {this.state.ticket.category}</h2>
+                <h4>Creation Date: {this.state.ticket.created_at}</h4>
+                <p>{this.state.ticket.text}</p>
             </React.Fragment>
         )
     }

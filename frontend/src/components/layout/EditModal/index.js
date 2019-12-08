@@ -2,38 +2,31 @@ import React, { Component } from 'react';
 
 // import { Modal } from ../Modal
 
-class AddModal extends Component {
+class EditModal extends Component {
     constructor() {
         super();
 
         this.state = {
-            title: '',
-            category: '',
-            text: ''
+            
         }
     }
 
-    handleChange = (e) => {
-        this.setState({ 
-            [e.currentTarget.name]: e.currentTarget.value 
-        })
-    }
-    
+
     render() {
         // const [title, category, text] = this.state;
         // const [closeAndAdd] = this.props;
-        
-        return(
+
+        return (
             <React.Fragment>
-            
-                    
+
+
                 <div id="modal1" class="modal">
                     <h5 class="modal-close">&#10005;</h5>
-                        <div class="modal-content center">
-                            <h4>Login Form</h4>
-                            <br />
+                    <div class="modal-content center">
+                        <h4>Login Form</h4>
+                        <br />
 
-                            <form onSubmit={e => this.props.closeAndAdd(e, this.state)}>
+                        <form onSubmit={e => this.props.closeAndAdd(e, this.state)}>
 
                             <div class="input-field">
                                 <i class="material-icons prefix">person</i>
@@ -62,7 +55,7 @@ class AddModal extends Component {
                                         <span>Other</span>
                                     </label>
                                 </p>
-                                
+
 
                             </div>
                             <br />
@@ -72,13 +65,13 @@ class AddModal extends Component {
                                 <textarea id="text" name="text" value={this.state.text} onChange={this.handleChange} />
                                 <label for="text">Text</label>
                             </div>
-                            
+
                             <input type="submit" value="Login" class="btn btn-large" />
-                            
-                            </form>
-                        </div>
-                    
-                    
+
+                        </form>
+                    </div>
+
+
                 </div>
 
             </React.Fragment>
@@ -87,4 +80,4 @@ class AddModal extends Component {
 
 }
 
-export default AddModal;
+export default EditModal;
