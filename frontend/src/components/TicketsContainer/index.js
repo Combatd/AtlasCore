@@ -22,7 +22,7 @@ class TicketsContainer extends React.Component {
     }
 
         componentWillMount() {
-            this.props.getTickets()
+            this.getTickets()
         }
 
         getTickets = async () => {
