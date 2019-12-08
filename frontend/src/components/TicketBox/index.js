@@ -20,8 +20,6 @@ class TicketBox extends Component  {
     render() {
         const { ticket } = this.props;
 
-        
-
             return (
                 <React.Fragment>
                     <div class="row">
@@ -44,9 +42,6 @@ class TicketBox extends Component  {
                 </React.Fragment>
             )
 
-        )
-
-        
     }
     
 
