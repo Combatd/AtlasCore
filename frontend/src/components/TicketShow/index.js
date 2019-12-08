@@ -9,6 +9,8 @@ class TicketShow extends Component {
         super(props)
 
         this.state = {
+            ticket: {},
+            showEditModal: null
 
         }
     }
@@ -43,6 +45,16 @@ class TicketShow extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+   
+
+    render() {
+        return(
+            <React.Fragment>
+
+            </React.Fragment>
+        )
     }
 
 
