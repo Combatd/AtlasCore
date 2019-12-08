@@ -1,7 +1,6 @@
 import React, { Component}  from 'react';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
-import { ReactComponent } from '*.svg';
 
 class TicketBox extends Component  {
     constructor(props) {
