@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 
 // Ticket - Post
 router.post('/', (req, res) => {
-
+    console.log('in')
     // create new ticket from the schema
     const newTicket = new Ticket({
         title: req.body.title,

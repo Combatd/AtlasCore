@@ -30,7 +30,7 @@ class TicketsContainer extends React.Component {
 
         getTickets = async () => {
             try {
-                const tickets = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/`, {
+                const tickets = await fetch(`api/v1/tickets/`, {
                     credentials: 'include',
                     method: 'Get',
                     headers: {
@@ -40,8 +40,10 @@ class TicketsContainer extends React.Component {
                 })
 
                 const parsedTickets = await tickets.json();
+                console.log(parsedTickets, " <- parsedTickets")
+                console.log(parsedTickets)
                 this.setState({
-                    tickets: parsedTickets.data
+                    tickets: parsedTickets
                 });
 
 
@@ -52,11 +54,10 @@ class TicketsContainer extends React.Component {
 
         closeAndAdd = async (e, ticket) => {
             e.preventDefault();
-
+           
             try {
-                
-                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/`, {
-                    credentials: 'include',
+                console.log(process.env)
+                const createdTicketResponse = await fetch(`api/v1/tickets/`, {
                     method: 'POST',
                     body: JSON.stringify(ticket),
                     headers: {
@@ -65,8 +66,9 @@ class TicketsContainer extends React.Component {
                 })
 
                 const parsedResponse = await createdTicketResponse.json();
+                console.log(parsedResponse, "<- parsedResponse on TicketsContainer.closeAndAdd")
                 this.setState({
-                    tickets: [...this.state.tickets, parsedResponse.data],
+                    tickets: [...this.state.tickets, parsedResponse],
                     showAddModal: false
                 })
 
@@ -78,7 +80,7 @@ class TicketsContainer extends React.Component {
         }
 
         deleteTicket = async (id) => {
-            const deleteTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${id}`, {
+            const deleteTicketResponse = await fetch(`api/v1/tickets/${id}`, {
                 method: 'DELETE',
                 credentials: 'include'
             });
@@ -95,7 +97,7 @@ class TicketsContainer extends React.Component {
             e.preventDefault();
 
             try {
-                const editResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${this.state.ticketToEdit.id}`, {
+                const editResponse = await fetch(`api/v1/tickets/${this.state.ticketToEdit.id}`, {
                     method: 'PUT',
                     body: JSON.stringify(this.state.ticketToEdit),
                     headers: {
@@ -106,8 +108,8 @@ class TicketsContainer extends React.Component {
                 
                 const editResponseParsed = await editResponse.json();
                 const newTicketArrayWithEdit = this.state.tickets.map( (ticket) => {
-                    if (ticket.id === editResponseParsed.data.id) {
-                        ticket = editResponseParsed.data
+                    if (ticket.id === editResponseParsed.id) {
+                        ticket = editResponseParsed
                     }
                     return ticket
                 });
@@ -161,7 +163,7 @@ class TicketsContainer extends React.Component {
 
 
         render() {
-            console.log(this.state)
+            console.log(this.state, "TicketsContainer this.state")
             // const [tickets, showAddModal, showEditModal] = this.state;
             if (this.state.tickets.length === 0) {
                 return(
