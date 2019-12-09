@@ -40,7 +40,7 @@ class AddModal extends Component {
             
                     
                 <div id="modal1" class="modal" style={{'display': this.props.showAddModal ? "block" : null}}>
-                    <h5 class="modal-close">&#10005;</h5>
+                    <h5 class="modal-close" onClick={this.props.closeModal}>&#10005;</h5>
                         <div class="modal-content center">
                             <h4>Add Ticket</h4>
                             <br />
