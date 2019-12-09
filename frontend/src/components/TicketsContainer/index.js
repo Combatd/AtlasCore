@@ -55,7 +55,7 @@ class TicketsContainer extends React.Component {
 
             try {
                 
-                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets`, {
+                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/`, {
                     credentials: 'include',
                     method: 'POST',
                     body: JSON.stringify(ticket),
@@ -63,6 +63,13 @@ class TicketsContainer extends React.Component {
                         'Content-Type': 'application/json'
                     }
                 })
+
+                const parsedResponse = await createdTicketResponse.json();
+                this.setState({
+                    tickets: [...this.state.tickets, parsedResponse.data],
+                    showAddModal: false
+                })
+
 
             } catch (error) {
                 console.log(error);
