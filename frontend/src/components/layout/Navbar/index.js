@@ -31,10 +31,10 @@ class Navbar extends Component {
             <React.Fragment>
 
                 <nav>
-                    <div class="nav-wrapper blue" >
+                    <div class="nav-wrapper grey" >
                         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
                         <div className="container">
-                            <a href="#" class="brand-logo">Logo</a>
+                            <a href="#" class="brand-logo">AtlasCore</a>
                             <ul id="nav-mobile" class="right hide-on-med-and-down">
                                 <li><NavLink to="/">Home</NavLink></li>
                                 <li><NavLink to="/tickets">Tickets</NavLink></li>
@@ -56,11 +56,11 @@ class Navbar extends Component {
                     </div>
                     </li>
                     <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                    <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/tickets">Tickets</NavLink></li>
-                    <li><NavLink to="/users">Users</NavLink></li>
                     <li><div class="divider"></div></li>
                     <li><a class="subheader">User Stuff</a></li>
-                    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+                    <li><NavLink to="/users">Users</NavLink></li>
                 </ul>
                 
             </ React.Fragment>
