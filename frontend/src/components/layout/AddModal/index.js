@@ -39,7 +39,7 @@ class AddModal extends Component {
             <React.Fragment>
             
                     
-                <div id="modal1" class="modal">
+                <div id="modal1" class="modal" style={{'display': this.props.showAddModal ? "block" : null}}>
                     <h5 class="modal-close">&#10005;</h5>
                         <div class="modal-content center">
                             <h4>Add Ticket</h4>

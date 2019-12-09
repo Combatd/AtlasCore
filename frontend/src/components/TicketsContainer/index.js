@@ -154,16 +154,17 @@ class TicketsContainer extends React.Component {
 
 
         render() {
+            console.log(this.state)
             // const [tickets, showAddModal, showEditModal] = this.state;
             if (this.state.tickets.length === 0) {
                 return(
                     <div>
-                        {
+                        {/* {
                             this.state.showAddModal
-                                ?
-                                <AddModal closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
-                                :
-                                null
+                                ? */}
+                                <AddModal showAddModal={this.state.showAddModal} closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
+                                // :
+                                // null
                         }
                         {
                             this.state.showEditModal
