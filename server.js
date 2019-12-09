@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const cors = require('cors');
 const methodOverride = require('method-override');
 
 
@@ -14,6 +15,7 @@ const commentController = require('./controllers/comments.js');
 
 // static files
 // app.use(express.static(path.join(__dirname, 'frontend' ,'build')));
+app.use(cors);
 app.use(express.json());
 
 

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Combatd/AtlasCore#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "eslint": "^6.7.2",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
