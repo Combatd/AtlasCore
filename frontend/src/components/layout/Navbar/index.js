@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom'
+
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 class Navbar extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+
+        }
+    }
+
 
     componentDidMount() {
 
@@ -26,9 +36,9 @@ class Navbar extends Component {
                         <div className="container">
                             <a href="#" class="brand-logo">Logo</a>
                             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                                <li><a href="sass.html">Sass</a></li>
-                                <li><a href="badges.html">Components</a></li>
-                                <li><a href="collapsible.html">JavaScript</a></li>
+                                <li><NavLink to="/">Home</NavLink></li>
+                                <li><NavLink to="/tickets">Tickets</NavLink></li>
+                                <li><NavLink to="/users">Users</NavLink></li>
                             </ul>
                         </div>
                     </div>
@@ -46,9 +56,10 @@ class Navbar extends Component {
                     </div>
                     </li>
                     <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                    <li><a href="#!">Second Link</a></li>
+                    <li><NavLink to="/tickets">Tickets</NavLink></li>
+                    <li><NavLink to="/users">Users</NavLink></li>
                     <li><div class="divider"></div></li>
-                    <li><a class="subheader">Subheader</a></li>
+                    <li><a class="subheader">User Stuff</a></li>
                     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
                 </ul>
                 
