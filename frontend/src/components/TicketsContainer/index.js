@@ -55,7 +55,7 @@ class TicketsContainer extends React.Component {
 
             try {
                 
-                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets`, {
+                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/`, {
                     credentials: 'include',
                     method: 'POST',
                     body: JSON.stringify(ticket),
