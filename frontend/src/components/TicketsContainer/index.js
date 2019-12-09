@@ -52,11 +52,10 @@ class TicketsContainer extends React.Component {
 
         closeAndAdd = async (e, ticket) => {
             e.preventDefault();
-
+            debugger
             try {
-                
-                const createdTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/`, {
-                    credentials: 'include',
+                console.log(process.env)
+                const createdTicketResponse = await fetch(`api/v1/tickets/`, {
                     method: 'POST',
                     body: JSON.stringify(ticket),
                     headers: {
