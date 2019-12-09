@@ -54,7 +54,7 @@ class TicketsContainer extends React.Component {
 
         closeAndAdd = async (e, ticket) => {
             e.preventDefault();
-            debugger
+           
             try {
                 console.log(process.env)
                 const createdTicketResponse = await fetch(`api/v1/tickets/`, {
@@ -66,8 +66,9 @@ class TicketsContainer extends React.Component {
                 })
 
                 const parsedResponse = await createdTicketResponse.json();
+                console.log(parsedResponse, "<- parsedResponse on TicketsContainer.closeAndAdd")
                 this.setState({
-                    tickets: [...this.state.tickets, parsedResponse.data],
+                    tickets: [...this.state.tickets, parsedResponse],
                     showAddModal: false
                 })
 
@@ -107,8 +108,8 @@ class TicketsContainer extends React.Component {
                 
                 const editResponseParsed = await editResponse.json();
                 const newTicketArrayWithEdit = this.state.tickets.map( (ticket) => {
-                    if (ticket.id === editResponseParsed.data.id) {
-                        ticket = editResponseParsed.data
+                    if (ticket.id === editResponseParsed.id) {
+                        ticket = editResponseParsed
                     }
                     return ticket
                 });
@@ -162,7 +163,7 @@ class TicketsContainer extends React.Component {
 
 
         render() {
-            console.log(this.state)
+            console.log(this.state, "TicketsContainer this.state")
             // const [tickets, showAddModal, showEditModal] = this.state;
             if (this.state.tickets.length === 0) {
                 return(
