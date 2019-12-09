@@ -151,7 +151,22 @@ class TicketsContainer extends React.Component {
             if (this.state.tickets.length === 0) {
                 return(
                     <div>
-                        <button onClick={this.showAddModal}>+ Add Ticket</button>
+                        {
+                            this.state.showAddModal
+                                ?
+                                <AddModal closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
+                                :
+                                null
+                        }
+                        {
+                            this.state.showEditModal
+                                ?
+                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.ticketToEdit} />
+                                :
+                                null
+                        }
+
+                        <button onClick={ this.showAddModal }>+ Add Ticket</button>
                         There are currently no tickets!
                     </div>
                 )
@@ -168,7 +183,7 @@ class TicketsContainer extends React.Component {
                         {
                             this.state.showEditModal
                                 ?
-                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.timelineToEdit} />
+                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.ticketToEdit} />
                                 :
                                 null
                         }
