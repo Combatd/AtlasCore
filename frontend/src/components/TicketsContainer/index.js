@@ -38,9 +38,9 @@ class TicketsContainer extends React.Component {
 
                 })
 
-                const ticketsJson = await tickets.json();
+                const parsedTickets = await tickets.json();
                 this.setState({
-                    tickets: ticketsJson.data
+                    tickets: parsedTickets.data
                 });
 
 
@@ -151,6 +151,7 @@ class TicketsContainer extends React.Component {
             if (this.state.tickets.length === 0) {
                 return(
                     <div>
+                        <button onClick={this.showAddModal}>+ Add Ticket</button>
                         There are currently no tickets!
                     </div>
                 )
@@ -173,6 +174,7 @@ class TicketsContainer extends React.Component {
                         }
 
                     <h2>All Tickets</h2>
+                        <button onClick={this.showAddModal}>+ Add Ticket</button>
                     {
                         this.state.tickets.map(ticket => (
                             <TicketBox key={ticket._id} ticket={ticket} />

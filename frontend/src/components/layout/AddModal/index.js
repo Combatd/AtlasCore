@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import { Modal } from ../Modal
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 class AddModal extends Component {
     constructor() {
@@ -11,6 +11,18 @@ class AddModal extends Component {
             category: '',
             text: ''
         }
+    }
+
+    componentDidMount() {
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, {});
+        });
+
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
     }
 
     handleChange = (e) => {
@@ -30,7 +42,7 @@ class AddModal extends Component {
                 <div id="modal1" class="modal">
                     <h5 class="modal-close">&#10005;</h5>
                         <div class="modal-content center">
-                            <h4>Login Form</h4>
+                            <h4>Add Ticket</h4>
                             <br />
 
                             <form onSubmit={e => this.props.closeAndAdd(e, this.state)}>
@@ -46,19 +58,19 @@ class AddModal extends Component {
                                 <i class="material-icons prefix">lock</i>
                                 <p>
                                     <label for="Computer">
-                                        <input id="Computer" class="with-gap" name="category" type="radio" checked />
+                                        <input id="Computer" value={this.state.category} class="with-gap" name="category" type="radio" checked />
                                         <span>Computer</span>
                                     </label>
                                 </p>
                                 <p>
                                     <label for="Phone">
-                                        <input id="Phone" class="with-gap" name="categpry" type="radio" />
+                                        <input id="Phone" value={this.state.category} class="with-gap" name="categpry" type="radio" />
                                         <span>Phone</span>
                                     </label>
                                 </p>
                                 <p>
                                     <label for="Other">
-                                        <input id="Other" class="with-gap" name="category" type="radio" />
+                                        <input id="Other" value={this.state.category} class="with-gap" name="category" type="radio" />
                                         <span>Other</span>
                                     </label>
                                 </p>
