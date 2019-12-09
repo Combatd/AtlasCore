@@ -57,20 +57,20 @@ class AddModal extends Component {
                             <div class="input-field">
                                 <i class="material-icons prefix">lock</i>
                                 <p>
-                                    <label for="Computer">
-                                        <input id="Computer" value={this.state.category} class="with-gap" name="category" type="radio" checked />
+                                    <label for="computer">
+                                        <input id="computer" value={this.state.category} class="with-gap" name="category" type="radio" checked />
                                         <span>Computer</span>
                                     </label>
                                 </p>
                                 <p>
-                                    <label for="Phone">
-                                        <input id="Phone" value={this.state.category} class="with-gap" name="categpry" type="radio" />
+                                    <label for="phone">
+                                        <input id="phone" value={this.state.category} class="with-gap" name="categpry" type="radio" />
                                         <span>Phone</span>
                                     </label>
                                 </p>
                                 <p>
-                                    <label for="Other">
-                                        <input id="Other" value={this.state.category} class="with-gap" name="category" type="radio" />
+                                    <label for="other">
+                                        <input id="other" value={this.state.category} class="with-gap" name="category" type="radio" />
                                         <span>Other</span>
                                     </label>
                                 </p>
