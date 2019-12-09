@@ -30,7 +30,7 @@ class TicketsContainer extends React.Component {
 
         getTickets = async () => {
             try {
-                const tickets = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/`, {
+                const tickets = await fetch(`api/v1/tickets/`, {
                     credentials: 'include',
                     method: 'Get',
                     headers: {
@@ -77,7 +77,7 @@ class TicketsContainer extends React.Component {
         }
 
         deleteTicket = async (id) => {
-            const deleteTicketResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${id}`, {
+            const deleteTicketResponse = await fetch(`api/v1/tickets/${id}`, {
                 method: 'DELETE',
                 credentials: 'include'
             });
@@ -94,7 +94,7 @@ class TicketsContainer extends React.Component {
             e.preventDefault();
 
             try {
-                const editResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${this.state.ticketToEdit.id}`, {
+                const editResponse = await fetch(`api/v1/tickets/${this.state.ticketToEdit.id}`, {
                     method: 'PUT',
                     body: JSON.stringify(this.state.ticketToEdit),
                     headers: {
