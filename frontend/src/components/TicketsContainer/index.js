@@ -38,9 +38,9 @@ class TicketsContainer extends React.Component {
 
                 })
 
-                const ticketsJson = await tickets.json();
+                const parsedTickets = await tickets.json();
                 this.setState({
-                    tickets: ticketsJson.data
+                    tickets: parsedTickets.data
                 });
 
 
@@ -151,20 +151,6 @@ class TicketsContainer extends React.Component {
             if (this.state.tickets.length === 0) {
                 return(
                     <div>
-                        {
-                            this.state.showAddModal
-                                ?
-                                <AddModal closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
-                                :
-                                null
-                        }
-                        {
-                            this.state.showEditModal
-                                ?
-                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.timelineToEdit} />
-                                :
-                                null
-                        }
                         <button onClick={this.showAddModal}>+ Add Ticket</button>
                         There are currently no tickets!
                     </div>
