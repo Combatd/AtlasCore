@@ -40,8 +40,10 @@ class TicketsContainer extends React.Component {
                 })
 
                 const parsedTickets = await tickets.json();
+                console.log(parsedTickets, " <- parsedTickets")
+                console.log(parsedTickets)
                 this.setState({
-                    tickets: parsedTickets.data
+                    tickets: parsedTickets
                 });
 
 
