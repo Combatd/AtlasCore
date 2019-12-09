@@ -23,18 +23,20 @@ class TicketShow extends Component {
     getTicket = async () => {
         // const params = this.props.match.params;
         const ticketId = this.props.match.params.id;
-
+        console.log(ticketId);
         try {
-            const ticket = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/tickets/${ticketId}`, {
+            const ticket = await fetch(`/api/v1/tickets/${ticketId}`, {
                 credentials: 'include',
                 method: 'Get',
+                header: {
                 'Content-Type': 'application/json'
+                }
             });
             const ticketJson = await ticket.json();
             console.log(ticketJson);
             this.setState({
-                ticket: ticketJson.data.ticket,
-                comments: ticketJson.data.comments
+                ticket: ticketJson,
+                comments: ticketJson.comments
             });
         } catch (error) {
             console.log(error);

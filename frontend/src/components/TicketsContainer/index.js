@@ -207,7 +207,7 @@ class TicketsContainer extends React.Component {
                         <button onClick={this.showAddModal}>+ Add Ticket</button>
                     {
                         this.state.tickets.map(ticket => (
-                            <TicketBox key={ticket._id} ticket={ticket} />
+                            <TicketBox key={ticket._id} ticket={ticket} id={ticket._id} />
                         ))
                     }
                     </div>

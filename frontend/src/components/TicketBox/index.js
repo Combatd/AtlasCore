@@ -1,5 +1,5 @@
 import React, { Component}  from 'react';
-
+import { Link } from 'react-router-dom'
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 class TicketBox extends Component  {
@@ -33,7 +33,7 @@ class TicketBox extends Component  {
                                     </p>
                                 </div>
                                 <div class="card-action">
-                                    <a href="#">Show Ticket</a>
+                                    <Link to={`/tickets/${this.props.id}`}>Show Ticket</Link>
                                     <a href="#" onClick={ () => this.props.openAndEdit(this.props.ticket) }>Edit Ticket</a>
                                 </div>
                             </div>
