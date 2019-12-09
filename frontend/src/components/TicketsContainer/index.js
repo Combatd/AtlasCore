@@ -163,9 +163,7 @@ class TicketsContainer extends React.Component {
                             this.state.showAddModal
                                 ? */}
                                 <AddModal showAddModal={this.state.showAddModal} closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
-                                // :
-                                // null
-                        }
+                               
                         {
                             this.state.showEditModal
                                 ?
@@ -184,7 +182,7 @@ class TicketsContainer extends React.Component {
                         {
                             this.state.showAddModal
                                 ?
-                                <AddModal closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
+                                <AddModal showAddModal={this.state.showAddModal} closeAndAdd={this.closeAndAdd} closeModal={this.closeModal} />
                                 :
                                 null
                         }

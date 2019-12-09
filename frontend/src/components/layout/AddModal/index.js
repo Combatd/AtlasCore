@@ -40,7 +40,7 @@ class AddModal extends Component {
             
                     
                 <div id="modal1" class="modal" style={{'display': this.props.showAddModal ? "block" : null}}>
-                    <h5 class="modal-close">&#10005;</h5>
+                    <h5 class="modal-close" onClick={this.props.closeModal}>&#10005;</h5>
                         <div class="modal-content center">
                             <h4>Add Ticket</h4>
                             <br />
@@ -53,18 +53,18 @@ class AddModal extends Component {
                                 <label for="title">Title</label>
                             </div>
                             <br />
-
+                            <h6>Select Category</h6>
                             <div class="input-field">
-                                <i class="material-icons prefix">lock</i>
+                                
                                 <p>
                                     <label for="computer">
-                                        <input id="computer" value={this.state.category} class="with-gap" name="category" type="radio" checked />
+                                        <input id="computer" value={this.state.category} class="with-gap" name="category" type="radio" />
                                         <span>Computer</span>
                                     </label>
                                 </p>
                                 <p>
                                     <label for="phone">
-                                        <input id="phone" value={this.state.category} class="with-gap" name="categpry" type="radio" />
+                                        <input id="phone" value={this.state.category} class="with-gap" name="category" type="radio" />
                                         <span>Phone</span>
                                     </label>
                                 </p>
@@ -78,7 +78,8 @@ class AddModal extends Component {
 
                             </div>
                             <br />
-
+                            
+                            <h6>Describe the Problem</h6>
                             <div class="input-field">
                                 <i class="material-icons prefix">mode_edit</i>
                                 <textarea id="text" name="text" value={this.state.text} onChange={this.handleChange} />
