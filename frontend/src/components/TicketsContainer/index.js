@@ -64,6 +64,13 @@ class TicketsContainer extends React.Component {
                     }
                 })
 
+                const parsedResponse = await createdTicketResponse.json();
+                this.setState({
+                    tickets: [...this.state.tickets, parsedResponse.data],
+                    showAddModal: false
+                })
+
+
             } catch (error) {
                 console.log(error);
             }
