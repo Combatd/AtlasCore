@@ -21,6 +21,7 @@ class TicketsContainer extends React.Component {
                 text: '',
             }
         }
+        
     }
 
         componentWillMount() {
@@ -122,6 +123,12 @@ class TicketsContainer extends React.Component {
             })
         }
 
+        handleChange = (e) => {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
+
         handleEditChange = (e) => {
             this.setState({
                 ticketToEdit: {
@@ -161,7 +168,7 @@ class TicketsContainer extends React.Component {
                         {
                             this.state.showEditModal
                                 ?
-                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.ticketToEdit} />
+                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} ticketToEdit={this.state.ticketToEdit} />
                                 :
                                 null
                         }
@@ -183,7 +190,7 @@ class TicketsContainer extends React.Component {
                         {
                             this.state.showEditModal
                                 ?
-                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} timelineToEdit={this.state.ticketToEdit} />
+                                <EditModal closeAndEdit={this.closeAndEdit} closeModal={this.closeModal} handleEditChange={this.handleEditChange} ticketToEdit={this.state.ticketToEdit} />
                                 :
                                 null
                         }
