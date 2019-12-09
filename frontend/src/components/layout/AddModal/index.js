@@ -53,9 +53,9 @@ class AddModal extends Component {
                                 <label for="title">Title</label>
                             </div>
                             <br />
-
+                            <h6>Select Category</h6>
                             <div class="input-field">
-                                <i class="material-icons prefix">lock</i>
+                                
                                 <p>
                                     <label for="computer">
                                         <input id="computer" value={this.state.category} class="with-gap" name="category" type="radio" />
@@ -78,7 +78,8 @@ class AddModal extends Component {
 
                             </div>
                             <br />
-
+                            
+                            <h6>Describe the Problem</h6>
                             <div class="input-field">
                                 <i class="material-icons prefix">mode_edit</i>
                                 <textarea id="text" name="text" value={this.state.text} onChange={this.handleChange} />
