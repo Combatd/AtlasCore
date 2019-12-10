@@ -30,7 +30,8 @@ class LoginForm extends Component {
             }
         });
         const parsedResponse = await loginResponse.json();
-        if (parsedResponse.status.message === 'user is logged in') {
+        console.log(parsedResponse, " <- parsedResponse");
+        if (parsedResponse.message === 'user is logged in') {
             this.props.closeAndLogUser(parsedResponse.data)
         } else {
             this.setState({
