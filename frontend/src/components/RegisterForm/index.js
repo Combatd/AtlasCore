@@ -40,27 +40,31 @@ class RegisterForm extends Component {
                     <div className="login-form">
 
                         <br />
+                        <label htmlFor="fullName">Full Name</label>
                         <input type="text"
                             name="fullName"
                             value={this.state.fullName}
                             onChange={this.handleChange}
-                            placeholder="Full Name"
+                            placeholder="John Doe"
                         />
                         <br />
+                        <label htmlFor="email">Email</label>
                         <input type="text"
                             name="email"
                             value={this.state.email}
                             onChange={this.handleChange}
-                            placeholder="Email"
+                            placeholder="email@example.com"
                         />
                         <br />
+                        <label htmlFor="username">Username</label>
                         <input type="text"
                             name="username"
                             value={this.state.username}
                             onChange={this.handleChange}
-                            placeholder="Handle"
+                            placeholder="Username"
                         />
                         <br />
+                        <label htmlFor="password">Password</label>
                         <input type="password"
                             name="password"
                             value={this.state.password}
