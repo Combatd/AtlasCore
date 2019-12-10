@@ -41,7 +41,7 @@ class TicketsContainer extends React.Component {
 
                 const parsedTickets = await tickets.json();
                 console.log(parsedTickets, " <- parsedTickets")
-                console.log(parsedTickets)
+                
                 this.setState({
                     tickets: parsedTickets
                 });
@@ -71,7 +71,7 @@ class TicketsContainer extends React.Component {
                     tickets: [...this.state.tickets, parsedResponse],
                     showAddModal: false
                 })
-
+                
 
             } catch (error) {
                 console.log(error);
@@ -163,7 +163,7 @@ class TicketsContainer extends React.Component {
 
 
         render() {
-            console.log(this.state, "TicketsContainer this.state")
+            
             // const [tickets, showAddModal, showEditModal] = this.state;
             if (this.state.tickets.length === 0) {
                 return(
