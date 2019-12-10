@@ -12,10 +12,6 @@ class AddCommentForm extends Component {
         }
     }
 
-    componentDidMount() {
-        M.AutoInit();
-    }
-
     handleChange = (e) => {
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value
@@ -26,19 +22,15 @@ class AddCommentForm extends Component {
         return(
             <React.Fragment>
                 <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                        <div class="input-field col s6">
-                            <input id="input_text" type="text" data-length="10" />
-                            <label for="input_text">Input text</label>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="textarea2" class="materialize-textarea" data-length="120" />
-                            <label for="textarea2">Textarea</label>
-                        </div>
-                        </div>
+                    <form onSubmit={(e) => this.props.closeAndAdd(e, this.state)} >
+                        <label>Comment Title</label>
+                        <input type="text" name="title" value={this.state.title} placeholder="Comment Title" onChange={this.handleChange} />
+                        <label>Text: </label>
+                        <input type="textarea" name="text" value={this.state.text} placeholder="Lorem Ipsum Bacon Ipsum Ham Ipsum Grass Fed Ipsum" onChange={this.handleChange} />
+
+                        <footer>
+                            <input type="submit" value="Submit" />
+                        </footer>
                     </form>
                 </div>
  
