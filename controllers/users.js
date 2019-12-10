@@ -43,7 +43,45 @@ router.post('/register', (req, res) => {
                 })
             }
         })
-        
+
+});
+
+router.post('/login', async (req, res) => {
+
+    // will look to findUser in the database
+    // it may send JSON that username or password is incorrect
+    // for either incorrect password or username
+
+    // find if the user exits
+    try {
+        const foundUser = await User.findOne({ username: req.body.username });
+        console.log(req.body);
+        // if User.findOne returns null/ or undefined it won't throw an error
+        console.log(foundUser);
+        if (foundUser) {
+
+            if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+
+                console.log(foundUser);
+                req.session.username = foundUser.username;
+                req.session.logged = true;
+
+                res.redirect('/posts')
+
+
+            } else {
+                return res.status(401).json({ message: 'Username or password is incorrect' })
+            }
+
+
+        } else {
+            return res.status(401).json({ message: 'Username or password is incorrect' })
+        }
+
+    } catch (err) {
+        res.send(err);
+    }
+
 });
 
 router.put('/:userId', async (req, res) => {
