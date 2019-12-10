@@ -1,27 +1,17 @@
-mport React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             email: '',
             password: '',
-            errors: {}
+            showError: null
         };
 
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.renderErrors = this.renderErrors.bind(this);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.currentUser === true) {
-    //         this.props.history.push('/tweets');
-    //     }
-
-    //     this.setState({ errors: nextProps.errors })
-    // }
 
     handleChange(field) {
         return e => this.setState({
@@ -29,28 +19,26 @@ class LoginForm extends React.Component {
         });
     }
 
-    handleSubmit = async (e) {
+    handleSubmit = async (e) => {
         e.preventDefault();
-
-        let user = {
-            email: this.state.email,
-            password: this.state.password
-        };
-
-        this.props.login(user);
+        const loginResponse = await fetch(`api/v1/users/login/`, {
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const parsedResponse = await loginResponse.json();
+        if (parsedResponse.status.message === 'user is logged in') {
+            this.props.closeAndLogUser(parsedResponse.data)
+        } else {
+            this.setState({
+                showError: true
+            })
+        }
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
 
     render() {
         return (
@@ -64,15 +52,17 @@ class LoginForm extends React.Component {
                             placeholder="Email"
                         />
                         <br />
-                        
+                        <label>Password</label>
                         <input type="password"
                             value={this.state.password}
-                            onChange={this.update('password')}
+                            onChange={this.handleChange('password')}
                             placeholder="Password"
                         />
                         <br />
                         <input type="submit" value="Submit" />
-                        {this.renderErrors()}
+                        {
+                            this.state.showError ? <h2>email or password is incorrect</h2> : null
+                        }
                     </div>
                 </form>
             </div>
@@ -80,4 +70,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default withRouter(LoginForm);
+export default LoginForm;
