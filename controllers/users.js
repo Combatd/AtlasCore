@@ -84,6 +84,20 @@ router.post('/login', async (req, res) => {
 
 });
 
+router.get('/logout', (req, res) => {
+
+    // we will destroy the session here
+    req.session.destroy((err) => {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            return res.status(201).json({ logout: "user has successfully logged out" })
+        }
+    })
+
+});
+
 router.put('/:userId', async (req, res) => {
     console.log(req.body)
     const updatedUser = await User.findByIdAndUpdate(req.params.userId, req.body, {
