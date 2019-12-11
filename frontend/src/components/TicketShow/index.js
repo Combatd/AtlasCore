@@ -61,7 +61,7 @@ class TicketShow extends Component {
                 <h2>Category: {this.state.ticket.category}</h2>
                 <h4>Creation Date: {this.state.ticket.created_at}</h4>
                 <p>{this.state.ticket.text}</p>
-                <AddCommentForm ticketId={this.props.match.params.ticketId} />
+                <AddCommentForm ticketId={this.state.ticket._id} />
             </React.Fragment>
         )
     }

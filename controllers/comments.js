@@ -7,16 +7,16 @@ const Comment = require('../models/comments');
 
 
 
-router.post('/tickets/:id', (req, res) => {
-    
+router.post('/tickets/:id/comments', (req, res) => {
     Comment.create(req.body, (err, createdComment) => {
         if(err) {
             console.log(err)
             res.json(err);
         } else {
             console.log(req.body)
+            console.log(req.params)
 
-            Ticket.findById(req.body.ticketId, (err, foundTicket) => {
+            Ticket.findById(req.params.id, (err, foundTicket) => {
 
                 if(err) {
                     console.log(err)
