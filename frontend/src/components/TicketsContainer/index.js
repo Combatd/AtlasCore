@@ -181,13 +181,13 @@ class TicketsContainer extends React.Component {
                                 null
                         }
 
-                        <button onClick={ this.showAddModal }>+ Add Ticket</button>
+                        <button className="waves-effect waves-light btn" onClick={ this.showAddModal }>+ Add Ticket</button>
                         There are currently no tickets!
                     </div>
                 )
             } else {
                 return (
-                    <div>
+                    <div className="center">
                         {
                             this.state.showAddModal
                                 ?
@@ -204,12 +204,15 @@ class TicketsContainer extends React.Component {
                         }
 
                     <h2>All Tickets</h2>
-                        <button onClick={this.showAddModal}>+ Add Ticket</button>
+                        <button className="waves-effect waves-light btn" onClick={this.showAddModal}>+ Add Ticket</button>
+                        <div className="center">
                     {
                         this.state.tickets.map(ticket => (
                             <TicketBox key={ticket._id} ticket={ticket} id={ticket._id} />
                         ))
                     }
+                        </div>
+
                     </div>
                 );
              }
