@@ -8,12 +8,9 @@ class AddCommentForm extends Component {
 
         this.state = {
             title: '',
-            text:''
+            text: '',
+            ticketId: ''
         }
-    }
-
-    componentDidMount() {
-        M.AutoInit();
     }
 
     handleChange = (e) => {
@@ -22,23 +19,31 @@ class AddCommentForm extends Component {
         });
     }
 
+    addComment = async (e) => {
+        e.preventDefault()
+        const createdComment = await fetch(`/api/v1/tickets/${this.props.ticketId}/comments`, {
+            method: "POST",
+            body: JSON.stringify(this.state),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+    }
+
     render() {
         return(
             <React.Fragment>
                 <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                        <div class="input-field col s6">
-                            <input id="input_text" type="text" data-length="10" />
-                            <label for="input_text">Input text</label>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="textarea2" class="materialize-textarea" data-length="120" />
-                            <label for="textarea2">Textarea</label>
-                        </div>
-                        </div>
+                    <form onSubmit={(e) => this.addComment(e)} >
+                        <label>Comment Title</label>
+                        <input type="text" name="title" value={this.state.title} placeholder="Comment Title" onChange={this.handleChange} />
+                        <label>Text: </label>
+                        <input type="text" name="text" value={this.state.text} placeholder="Lorem Ipsum Bacon Ipsum Ham Ipsum Grass Fed Ipsum" onChange={this.handleChange} />
+                        <input type="text" name="ticketId" value={this.props.ticketId} hidden />
+
+                        <footer>
+                            <input type="submit" value="Submit" />
+                        </footer>
                     </form>
                 </div>
  
