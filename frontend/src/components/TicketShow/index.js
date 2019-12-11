@@ -10,8 +10,8 @@ class TicketShow extends Component {
 
         this.state = {
             ticket: {},
-            showEditModal: null
-
+            showEditModal: null,
+            comments: []
         }
     }
 
@@ -61,7 +61,37 @@ class TicketShow extends Component {
                 <h2>Category: {this.state.ticket.category}</h2>
                 <h4>Creation Date: {this.state.ticket.created_at}</h4>
                 <p>{this.state.ticket.text}</p>
+                <div class="container">
                 <AddCommentForm ticketId={this.state.ticket._id} />
+                </div>
+                <br/>
+                <div class="container"> 
+                    <h5>Comments <i class="small material-icons">chat_bubble</i></h5> 
+                    <ul>
+
+                        {
+                            this.state.comments.map((comment) => {
+                                return (<li>
+
+                                    <div class="row">
+                                        <div class="col s12 m8">
+                                            <div class="card blue darken-1">
+                                                <div class="card-content white-text">
+                                                    <span class="card-title">{comment.title}</span>
+                                                    <p>{comment.text}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+
             </React.Fragment>
         )
     }
