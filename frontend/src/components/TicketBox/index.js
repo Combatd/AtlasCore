@@ -22,24 +22,25 @@ class TicketBox extends Component  {
 
             return (
                 <React.Fragment>
-                    <div className="row">
-                        <div className="col s12 m6">
-                            <div className="card blue-grey darken-1">
-                                <div className="card-content white-text">
-                                    <span className="card-title"> {this.props.ticket.title} </span>
-            
-                                        <h4>{this.props.ticket.category}</h4>
-                                        <h5>Open Status: {this.props.ticket.is_open}</h5>
-                                   
-                                </div>
-                                <div className="card-action">
-                                    <Link to={`/tickets/${this.props.id}`}>Show Ticket</Link>
-                                    <a href="#" onClick={ () => this.props.openAndEdit(this.props.ticket) }>Edit Ticket</a>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col s12 m12">
+                                <div className="card blue-grey darken-1">
+                                    <div className="card-content white-text">
+                                        <span className="card-title"> {this.props.ticket.title} </span>
+                
+                                            <h4>{this.props.ticket.category}</h4>
+                                            <h5>Open Status: {this.props.ticket.is_open}</h5>
+                                    
+                                    </div>
+                                    <div className="card-action">
+                                        <Link to={`/tickets/${this.props.id}`}>Show Ticket</Link>
+                                        <a href="#" onClick={ () => this.props.openAndEdit(this.props.ticket) }>Edit Ticket</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </React.Fragment>
             )
 
