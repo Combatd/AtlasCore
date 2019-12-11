@@ -7,6 +7,7 @@ import TicketsContainer from './components/TicketsContainer';
 import TicketShow from './components/TicketShow';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
+import HomePage from './components/HomePage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/tickets" component={TicketsContainer} />
           <Route exact path="/tickets/:id" component={TicketShow} />
           <Route exact path="/login" component={LoginForm} />
