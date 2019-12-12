@@ -207,7 +207,7 @@ class TicketsContainer extends React.Component {
 
                     <h2>All Tickets</h2>
                         <button className="waves-effect waves-light btn" onClick={this.showAddModal}>+ Add Ticket</button>
-                        <div className="center">
+                        <div className="center" >
                     {
                         this.state.tickets.map(ticket => (
                             <TicketBox key={ticket._id} ticket={ticket} id={ticket._id} />
