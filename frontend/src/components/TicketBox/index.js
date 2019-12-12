@@ -35,7 +35,7 @@ class TicketBox extends Component  {
                                     </div>
                                     <div className="card-action">
                                         <Link to={`/tickets/${this.props.id}`}>Show Ticket</Link>
-                                        <a href="#" onClick={ () => this.props.openAndEdit(this.props.ticket) }>Edit Ticket</a>
+                                        {/* <a href="#" onClick={ () => this.props.openAndEdit(this.props.ticket) }>Edit Ticket</a> */}
                                     </div>
                                 </div>
                             </div>

@@ -30,6 +30,12 @@ class AddModal extends Component {
             [e.currentTarget.name]: e.currentTarget.value 
         })
     }
+
+    handleCategory = (e) => {
+        this.setState({
+            category: e.currentTarget.value
+        })
+    }
     
     render() {
         // const [title, category, text] = this.state;
@@ -39,7 +45,9 @@ class AddModal extends Component {
             <React.Fragment>
             
                     
-                <div id="modal1" className="modal" style={{'display': this.props.showAddModal ? "block" : null}}>
+                <div id="modal1" className="modal" style={
+                    { 'display': this.props.showAddModal ? "block" : null, "zIndex": 1 }
+                }>
                     <h5 className="modal-close" onClick={this.props.closeModal}>&#10005;</h5>
                         <div className="modal-content center">
                             <h4>Add Ticket</h4>
@@ -58,19 +66,19 @@ class AddModal extends Component {
                                 
                                 <p>
                                     <label htmlFor="computer">
-                                        <input id="computer" value={this.state.category} className="with-gap" name="category" type="radio" />
+                                        <input id="computer" value="computer" className="with-gap" name="category" type="radio" onClick={this.handleCategory} />
                                         <span>Computer</span>
                                     </label>
                                 </p>
                                 <p>
                                     <label htmlFor="phone">
-                                        <input id="phone" value={this.state.category} className="with-gap" name="category" type="radio" />
+                                        <input id="phone" value="phone" className="with-gap" name="category" type="radio" onClick={this.handleCategory} />
                                         <span>Phone</span>
                                     </label>
                                 </p>
                                 <p>
                                     <label htmlFor="other">
-                                        <input id="other" value={this.state.category} className="with-gap" name="category" type="radio" />
+                                        <input id="other" value="other" className="with-gap" name="category" type="radio" onClick={this.handleCategory} />
                                         <span>Other</span>
                                     </label>
                                 </p>
@@ -86,7 +94,7 @@ class AddModal extends Component {
                                 <label htmlFor="text">Text</label>
                             </div>
                             
-                            <input type="submit" value="Login" className="btn btn-large" />
+                            <input type="submit" value="Submit" className="btn btn-large" />
                             
                             </form>
                         </div>
