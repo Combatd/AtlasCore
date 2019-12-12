@@ -3,10 +3,21 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const methodOverride = require('method-override');
-
+const session = require('express-session');
 
 const PORT = process.env.PORT || 8000;
 require('./config/db');
+
+
+// session control
+app.use(session({
+    secret: "this is a random secret string", 
+    resave: false, 
+    saveUninitialized: false 
+    
+}));
+
+
 
 // controllers
 const userController = require('./controllers/users');

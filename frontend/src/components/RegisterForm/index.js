@@ -18,7 +18,7 @@ class RegisterForm extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        const registerResponse = await fetch(`api/v1/users/register`, {
+        const registerResponse = await fetch(`api/v1/users/register/`, {
             method: 'POST',
             credentials: 'include',
             body: JSON.stringify(this.state),
@@ -27,7 +27,7 @@ class RegisterForm extends Component {
             }
         });
         const parsedResponse = await registerResponse.json();
-        if (parsedResponse.status.message === 'Success, user is registered') {
+        if (parsedResponse.message === 'Success, user is registered') {
             console.log('success login')
             this.props.closeAndLogUser(parsedResponse.data)
         }

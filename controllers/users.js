@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const User = require('../models/Users')
 
 
@@ -28,6 +28,7 @@ router.post('/register', (req, res) => {
                 const newUser = new User({
                     fullName: req.body.fullName,
                     email: req.body.email,
+                    username: req.body.username,
                     password: req.body.password,
                     isAdmin: req.body.isAdmin
                 })
