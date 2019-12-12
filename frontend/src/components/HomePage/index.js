@@ -29,7 +29,7 @@ class HomePage extends Component {
           <h5 class="header col s12 light">For your Information Technology Needs</h5>
         </div>
         <div class="row center">
-          <NavLink to="/login" id="download-button" class="btn-large waves-effect waves-light blue">Sign-In</NavLink>
+          <NavLink to="/tickets" id="download-button" class="btn-large waves-effect waves-light blue">Tickets</NavLink>
         </div>
         <br/><br/>
       </div>

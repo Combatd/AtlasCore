@@ -35,7 +35,7 @@ class RegisterForm extends Component {
     
     render() {
         return (
-            <div className="login-form-container">
+            <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <div className="login-form">
 
